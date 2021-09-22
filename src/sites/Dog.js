@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../modules/Loading';
-import { useGlobalContext } from '../context';
 
 const dogUrl = 'https://random.dog/woof.json';
 

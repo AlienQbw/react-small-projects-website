@@ -171,6 +171,11 @@ img {
 .loader:after {
   left: 1.5em;
 }
+.loader-text {
+  position: relative;
+  top: 190px;
+  border-bottom: 1px solid var(--darkGrey);
+}
 @-webkit-keyframes load1 {
   0%,
   80%,

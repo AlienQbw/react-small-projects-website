@@ -18,6 +18,9 @@ const Navbar = () => {
           <li>
             <Link to="/szczecin-weather">| Szczecin Weather |</Link>
           </li>
+          <li>
+            <Link to="/productivity-app">| Productivity App |</Link>
+          </li>
         </ul>
       </div>
     </nav>

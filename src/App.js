@@ -3,6 +3,7 @@ import About from './sites/About';
 import Home from './sites/Home';
 import Fun from './sites/Dog';
 import SzczecinWeather from './sites/SzczecinWeather';
+import ProductivityApp from './sites/ProductivityApp';
 import Navbar from './modules/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/szczecin-weather">
             <SzczecinWeather />
+          </Route>
+          <Route path="/productivity-app">
+            <ProductivityApp />
           </Route>
         </Switch>
       </Router>

@@ -2,6 +2,7 @@ import React from 'react';
 import About from './sites/About';
 import Home from './sites/Home';
 import Fun from './sites/Dog';
+import SzczecinWeather from './sites/SzczecinWeather';
 import Navbar from './modules/Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/dog">
             <Fun />
+          </Route>
+          <Route path="/szczecin-weather">
+            <SzczecinWeather />
           </Route>
         </Switch>
       </Router>

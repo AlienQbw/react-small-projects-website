@@ -21,6 +21,8 @@ const Fun = () => {
     fetchDogs();
   }, []);
 
+  const text = 'Loading image, it might take some time.';
+
   if (loading) {
     return (
       <section className="container flex">
@@ -37,7 +39,7 @@ const Fun = () => {
             height="40%"
           />
         </div>
-        <Loading />
+        <Loading text={text} />
       </section>
     );
   }

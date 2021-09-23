@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Loading = () => {
+const Loading = (text) => {
+  const message = text.text;
   return (
     <div className="loader-container">
       <div className="flex">
-        <p className="loader-text">Loading image, it might take some time.</p>
+        <p className="loader-text">{message}</p>
       </div>
       <div className="loader"></div>
     </div>

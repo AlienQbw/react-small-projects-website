@@ -7,7 +7,7 @@ const About = () => {
       <p>
         I'm writing this website for fun and practice! You can discover few of
         my practice stuff by clicking links above! I hope you will enjoy it
-        <span role="img" aria-describedby>
+        <span role="img" aria-label="smiley face">
           😊
         </span>
       </p>

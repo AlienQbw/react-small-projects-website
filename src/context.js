@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useCallback } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
 /* const dogUrl = 'https://random.dog/woof.json'; */
 const AppContext = React.createContext();
@@ -13,7 +13,7 @@ const AppProvider = ({ children }) => {
 
   //firstly asnych function declaration
   const fetchWeather = async () => {
-    console.log(`im trying to fetch again, this is my current data: ${data}`);
+    // console.log(`im trying to fetch again, this is my current data: ${data}`);
     try {
       //then await for fetching of url (response)
       const response = await fetch(url);
@@ -29,7 +29,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchWeather();
   }, []);
-  console.log(data);
+  /*   console.log(data); */
 
   return (
     <AppContext.Provider value={{ loading, data }}>

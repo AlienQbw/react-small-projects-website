@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Loading from './Loading';
 import WeatherContainer from './WeatherContainer';
 import { useGlobalContext } from '../context';

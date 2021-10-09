@@ -1,0 +1,79 @@
+:root {
+  --primaryLightColor: #d4e6a5;
+  --primaryColor: #476a2e;
+  --primaryDarkColor: #a72400;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBackground: #f1f5f8;
+  --mainOverlay: rgba(35, 10, 36, 0.4);
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #afafaf;
+  --mainRed: #bd0303;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 0.3rem;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --mainBorderRadius: 0.25rem;
+  --smallWidth: 85vw;
+  --maxWidth: 40rem;
+  --fullWidth: 1170px;
+}
+
+/* PRODUCTIVITY APP */
+.productivity-container {
+  margin: 25px;
+}
+.productivity-module {
+  background-color: var(--darkGrey);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* TIMER */
+.bubble-background {
+  width: 550px;
+  height: 350px;
+  background-color: var(--primaryDarkColor);
+  border-radius: 50%;
+}
+.bubble {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: var(--mainRed);
+  flex-direction: column;
+}
+
+.time {
+  font-size: 95px;
+  color: var(--mainWhite);
+  margin: 0;
+}
+.btn-timer {
+  width: 120px;
+  height: 35px;
+  margin: 7px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: transparent;
+  color: var(--mainRed);
+  font-weight: 600;
+  background-color: var(--mainWhite);
+  transition: 0.4s;
+}
+.btn-timer:hover {
+  cursor: pointer;
+  font-size: 17px;
+  background-color: var(--offWhite);
+}
+.btn-timer:active {
+  background-color: red;
+  transition: 0.4s;
+}
+
+/* ToDo List */
+.single-task {
+}
+.checkbox {
+}

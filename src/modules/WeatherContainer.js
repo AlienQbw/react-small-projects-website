@@ -35,10 +35,13 @@ const WeatherContainer = ({ date, temp2m, weather, wind10m_max }) => {
 
   //all arrays belo correspond with index, i means taht weatherList[0] has link in icon[0]
   const weatherList = [
+    'clear',
     'clearday',
     'pcloudy',
     'mcloudy',
     'cloudy',
+    'oshower',
+    'ishower',
     'rain',
     'snowh',
     'thunderstorm',
@@ -46,9 +49,12 @@ const WeatherContainer = ({ date, temp2m, weather, wind10m_max }) => {
   ];
   const icon = [
     'http://www.7timer.info/img/misc/about_two_clear.png',
+    'http://www.7timer.info/img/misc/about_two_clear.png',
     'http://www.7timer.info/img/misc/about_two_pcloudy.png',
     'http://www.7timer.info/img/misc/about_two_pcloudy.png',
     'http://www.7timer.info/img/misc/about_two_cloudy.png',
+    'http://www.7timer.info/img/misc/about_two_cloudy.png',
+    'http://www.7timer.info/img/misc/about_two_pcloudy.png',
     'http://www.7timer.info/img/misc/about_two_rain.png',
     'http://www.7timer.info/img/misc/about_two_snow.png',
     'http://www.7timer.info/img/misc/about_two_ts.png',
@@ -63,11 +69,7 @@ const WeatherContainer = ({ date, temp2m, weather, wind10m_max }) => {
     <div className="weather-card">
       <ul>
         <li>
-          <img
-            src={icon[findWeatherIcon]}
-            alt="weather-icon"
-            className="icon"
-          />
+          <img src={icon[findWeatherIcon]} alt="404" className="icon" />
           <p>{`${year} | ${monthNames[month - 1]} ${dayName} ${day}`}</p>
         </li>
         <li>{`Heighest temp: ${temp2m.max}°`}</li>

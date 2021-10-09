@@ -21,13 +21,13 @@ This app should contain:
 const ProductivityApp = () => {
   return (
     <ProductivityProvider>
-      <div className="container">
+      <div className="container productivityApp">
         <Timer />
         <TodoList />
+        <Tasks />
         <Settings />
         <Music />
         <History />
-        <Tasks />
       </div>
     </ProductivityProvider>
   );

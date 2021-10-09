@@ -6,7 +6,9 @@ const Timer = () => {
   const ref = useRef(null);
   const [timer, setTimer] = useState(defaultUser.timer);
   const [isPaused, setIsPaused] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
   const startTimer = () => {
+    setIsRunning(true);
     ref.current = setInterval(() => {
       setTimer((timer) => timer - 1);
     }, 1000);
@@ -14,6 +16,7 @@ const Timer = () => {
   };
   const stopTimer = () => {
     clearInterval(ref.current);
+    setIsRunning(false);
     setIsPaused(true);
   };
   const resetTimer = () => {
@@ -34,7 +37,10 @@ const Timer = () => {
       <div className="bubble-background flex">
         <div className="bubble flex">
           <p className="time">{timer}</p>
-          <button className="btn-timer" onClick={startTimer}>
+          <button
+            className="btn-timer"
+            onClick={() => (isRunning ? null : startTimer())}
+          >
             Start
           </button>
           {isPaused ? (

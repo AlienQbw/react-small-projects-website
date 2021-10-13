@@ -271,3 +271,11 @@
   box-shadow: 10px 10px 0 #353b48;
   transform: translate(calc(90px - 45px), -5px);
 }
+
+/* MUSIC */
+.music-container {
+  text-align: center;
+}
+.music-options-container {
+  flex-direction: row;
+}

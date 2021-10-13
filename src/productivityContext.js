@@ -9,6 +9,10 @@ const ProductivityProvider = ({ children }) => {
   const toggleSideBar = () => {
     setIsSideBarOpen(!isSideBarOpen);
   };
+  const changeTimer = (v) => {
+    console.log(`Updated Timer To: ${v}s.`);
+    defaultUser.timer = v;
+  };
 
   const musicGenre = ['Lofi', 'Rock', 'POP', 'Instrumental'];
   class User {
@@ -28,7 +32,13 @@ const ProductivityProvider = ({ children }) => {
   const defaultUser = new User(30, 'Lofi', [{ name: '', category: '' }], []);
   return (
     <ProductivityContext.Provider
-      value={{ defaultUser, musicGenre, toggleSideBar, isSideBarOpen }}
+      value={{
+        defaultUser,
+        musicGenre,
+        toggleSideBar,
+        isSideBarOpen,
+        changeTimer,
+      }}
     >
       {children}
     </ProductivityContext.Provider>

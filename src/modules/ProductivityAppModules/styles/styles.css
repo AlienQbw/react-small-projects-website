@@ -21,6 +21,9 @@
   --fullWidth: 1170px;
 }
 
+.dark-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
 /* PRODUCTIVITY APP */
 .btn-productivity {
   width: 120px;
@@ -217,4 +220,54 @@
 .tasks-categories-container li {
   margin-left: 40px;
   margin-bottom: 5px;
+}
+
+/* SETTINGS */
+.settings-container {
+  flex-direction: row;
+}
+.settings-container .input-timer {
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  font-size: 30px;
+  padding-left: 15px;
+}
+.context {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+}
+
+.context input {
+  width: 90px;
+  height: 40px;
+  background: #111;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.context input:checked {
+  background: #fff;
+}
+
+.context input::after {
+  content: '';
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #ffbe76;
+  transform: translate(5px, 5px);
+  transition: 0.3s linear;
+}
+
+.context input:checked::after {
+  inset: unset;
+  background: transparent;
+  box-shadow: 10px 10px 0 #353b48;
+  transform: translate(calc(90px - 45px), -5px);
 }

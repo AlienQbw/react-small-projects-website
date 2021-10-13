@@ -23,9 +23,9 @@ const ProductivityApp = () => {
     <ProductivityProvider>
       <div className="container productivityApp">
         <Timer />
+        <Settings />
         <TodoList />
         <Tasks />
-        <Settings />
         <Music />
         <History />
       </div>

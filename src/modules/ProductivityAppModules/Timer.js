@@ -31,7 +31,10 @@ const Timer = () => {
       </button>
     );
   };
-
+  /* useEffect here is called because if we change settings in settings.js for timer we have to update changes */
+  useEffect(() => {
+    setTimer(defaultUser.timer);
+  }, [defaultUser.timer]);
   return (
     <section className="flex">
       <div className="bubble-background flex">

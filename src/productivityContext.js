@@ -13,6 +13,10 @@ const ProductivityProvider = ({ children }) => {
     console.log(`Updated Timer To: ${v}s.`);
     defaultUser.timer = v;
   };
+  const updateHistory = (item) => {
+    console.log(`Added session to the history: ${item}`);
+    defaultUser.history.push(item);
+  };
 
   const musicGenre = ['Lofi', 'Rock', 'POP', 'Instrumental'];
   class User {
@@ -38,6 +42,7 @@ const ProductivityProvider = ({ children }) => {
         toggleSideBar,
         isSideBarOpen,
         changeTimer,
+        updateHistory,
       }}
     >
       {children}

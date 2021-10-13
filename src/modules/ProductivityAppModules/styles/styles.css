@@ -279,3 +279,14 @@
 .music-options-container {
   flex-direction: row;
 }
+
+/* HISTORY */
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.history-container li {
+  font-size: 25px;
+}

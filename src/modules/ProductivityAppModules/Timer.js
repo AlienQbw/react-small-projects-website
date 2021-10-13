@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useGlobalProductivityContext } from '../../productivityContext';
 
 const Timer = () => {
-  const { defaultUser } = useGlobalProductivityContext();
+  const { defaultUser, updateHistory } = useGlobalProductivityContext();
   const ref = useRef(null);
   const [timer, setTimer] = useState(defaultUser.timer);
   const [isPaused, setIsPaused] = useState(false);
@@ -26,7 +26,13 @@ const Timer = () => {
 
   const ResetButton = () => {
     return (
-      <button className="btn-timer" onClick={resetTimer}>
+      <button
+        className="btn-timer"
+        onClick={() => {
+          updateHistory(timer);
+          resetTimer();
+        }}
+      >
         Reset
       </button>
     );

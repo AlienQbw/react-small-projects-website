@@ -18,6 +18,8 @@ const Music = () => {
           );
         })}
         <button className="btn-productivity">No music</button>
+        <label>Volume:</label>
+        <input type="range" id="volume" name="volume" min="0" max="20" />
       </div>
     </div>
   );

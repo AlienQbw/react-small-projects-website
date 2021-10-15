@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import cross from './media/close-cross.png';
 import data from './../../tasksData/data.json';
 import { useGlobalProductivityContext } from '../../productivityContext';
+import TodoList from './TodoList';
 
 const Tasks = () => {
   const { isSideBarOpen, toggleSideBar } = useGlobalProductivityContext();
@@ -10,6 +11,36 @@ const Tasks = () => {
   const [isNewCategoryActive, setIsNewCategoryActive] = useState(false);
   const [isNewTaskActive, setIsNewTaskActive] = useState(false);
   const [isNewTaskActiveId, setIsNewTaskActiveId] = useState(null);
+
+  const newCategoryInput = useRef(null);
+  const newTaskInput = useRef(null);
+
+  const addNewCategory = () => {
+    setToDoList([
+      ...toDoList,
+      {
+        id: toDoList.length,
+        category: newCategoryInput.current.value,
+        tasks: [],
+      },
+    ]);
+    setIsNewCategoryActive(false);
+  };
+  const addNewTask = (categoryId) => {
+    if (
+      toDoList[categoryId.children].tasks.indexOf(
+        newTaskInput.current.value
+      ) === -1
+    ) {
+      let newArray = toDoList;
+      newArray[categoryId.children].tasks.push(newTaskInput.current.value);
+      setToDoList(newArray);
+      setIsNewTaskActive(false);
+    } else {
+      alert('Task already exists!');
+    }
+  };
+
   const AddNewCategoryContainer = () => {
     return (
       <>
@@ -17,8 +48,11 @@ const Tasks = () => {
           className="task-input"
           type="text"
           placeholder="Enter category name..."
+          ref={newCategoryInput}
         />
-        <button className="btn-productivity-small">Save</button>
+        <button onClick={addNewCategory} className="btn-productivity-small">
+          Save
+        </button>
       </>
     );
   };
@@ -30,8 +64,14 @@ const Tasks = () => {
           className="task-input"
           type="text"
           placeholder="Enter task name..."
+          ref={newTaskInput}
         />
-        <button className="btn-productivity-small">Add</button>
+        <button
+          onClick={() => addNewTask(categoryId)}
+          className="btn-productivity-small"
+        >
+          Add
+        </button>
       </>
     );
   };

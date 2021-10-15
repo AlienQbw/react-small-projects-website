@@ -12,8 +12,16 @@ const Tasks = () => {
   const [isNewTaskActive, setIsNewTaskActive] = useState(false);
   const [isNewTaskActiveId, setIsNewTaskActiveId] = useState(null);
 
+  const [listForToDo, setListForToDo] = useState([]);
+
   const newCategoryInput = useRef(null);
   const newTaskInput = useRef(null);
+
+  const addToToDoList = (item) => {
+    if (listForToDo.indexOf(item) === -1) {
+      setListForToDo([...listForToDo, item]);
+    }
+  };
 
   const addNewCategory = () => {
     setToDoList([
@@ -77,54 +85,62 @@ const Tasks = () => {
   };
 
   return (
-    <section
-      className={
-        isSideBarOpen
-          ? 'tasks-categories-container open container'
-          : 'tasks-categories-container container'
-      }
-    >
-      <button className="close-cross-btn" onClick={toggleSideBar}>
-        <img src={cross} alt="close-cross" />
-      </button>
-      <div className="add-container">
-        <button
-          className="btn-productivity"
-          onClick={() => {
-            setIsNewCategoryActive(!isNewCategoryActive);
-          }}
-        >
-          Add new category
+    <div>
+      <TodoList list={listForToDo} />
+      <section
+        className={
+          isSideBarOpen
+            ? 'tasks-categories-container open container'
+            : 'tasks-categories-container container'
+        }
+      >
+        <button className="close-cross-btn" onClick={toggleSideBar}>
+          <img src={cross} alt="close-cross" />
         </button>
-        {isNewCategoryActive ? <AddNewCategoryContainer /> : null}
-      </div>
-      {toDoList.map((el) => {
-        return (
-          <div key={el.id}>
-            <h2>{el.category}</h2>
-            <ul>
-              {el.tasks.map((e) => {
-                return <li key={e}>{e}</li>;
-              })}
-            </ul>
-            <div className="add-container">
-              <button
-                className="btn-productivity"
-                onClick={() => {
-                  setIsNewTaskActive(!isNewTaskActive);
-                  setIsNewTaskActiveId(el.id);
-                }}
-              >
-                New Task
-              </button>
-              {isNewTaskActive && isNewTaskActiveId === el.id ? (
-                <AddNewTaskContainer>{el.id}</AddNewTaskContainer>
-              ) : null}
+        <div className="add-container">
+          <button
+            className="btn-productivity"
+            onClick={() => {
+              setIsNewCategoryActive(!isNewCategoryActive);
+            }}
+          >
+            Add new category
+          </button>
+          {isNewCategoryActive ? <AddNewCategoryContainer /> : null}
+        </div>
+        {toDoList.map((el) => {
+          return (
+            <div key={el.id}>
+              <h2>{el.category}</h2>
+              <ul>
+                {el.tasks.map((e) => {
+                  return (
+                    <li key={e}>
+                      {e}
+                      <button onClick={() => addToToDoList(e)}>+</button>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="add-container">
+                <button
+                  className="btn-productivity"
+                  onClick={() => {
+                    setIsNewTaskActive(!isNewTaskActive);
+                    setIsNewTaskActiveId(el.id);
+                  }}
+                >
+                  New Task
+                </button>
+                {isNewTaskActive && isNewTaskActiveId === el.id ? (
+                  <AddNewTaskContainer>{el.id}</AddNewTaskContainer>
+                ) : null}
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </section>
+          );
+        })}
+      </section>
+    </div>
   );
 };
 

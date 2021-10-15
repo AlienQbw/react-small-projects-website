@@ -191,6 +191,28 @@
   background-color: #fff;
   color: var(--mainBlack);
 }
+.tasks-categories-container li button {
+  float: right;
+  text-align: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  border: transparent;
+  background-color: var(--mainRed);
+  color: var(--mainWhite);
+  font-weight: bold;
+}
+.tasks-categories-container li button:hover {
+  transition: 0.5s;
+  cursor: pointer;
+  background-color: var(--mainWhite);
+  color: var(--mainRed);
+}
+.tasks-categories-container li button:active {
+  transition: 0s;
+  transform: translateY(4px);
+}
+
 .task-input {
   height: 25px;
   border-radius: 10px;

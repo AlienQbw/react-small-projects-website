@@ -1,7 +1,6 @@
 import React from 'react';
 import '../modules/ProductivityAppModules/styles/styles.css';
 import Timer from '../modules/ProductivityAppModules/Timer';
-import TodoList from '../modules/ProductivityAppModules/TodoList';
 import Settings from '../modules/ProductivityAppModules/Settings.js';
 import Music from '../modules/ProductivityAppModules/Music';
 import History from '../modules/ProductivityAppModules/History';
@@ -24,7 +23,7 @@ const ProductivityApp = () => {
       <div className="container productivityApp">
         <Timer />
         <Settings />
-        <TodoList />
+        {/*         <TodoList /> */}
         <Tasks />
         <Music />
         <History />

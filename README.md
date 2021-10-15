@@ -1,6 +1,6 @@
 # React Practice Website
 
-### Hello, this is repo with my REACT website, that contains some small projects, like weather app or productivity app.
+### Hello, this is repo with my first (for learning purposes) REACT website, that contains some small projects, like weather app or productivity app.
 
 If you want to have fun with it, pull the repo and use npm or yarn for example to start local server.
 

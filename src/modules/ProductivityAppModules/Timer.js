@@ -45,7 +45,7 @@ const Timer = () => {
     <section className="flex">
       <div className="bubble-background flex">
         <div className="bubble flex">
-          <p className="time">{timer}</p>
+          <p className="time">{timer} s.</p>
           <button
             className="btn-timer"
             onClick={() => (isRunning ? null : startTimer())}

@@ -6,14 +6,13 @@ import { useGlobalProductivityContext } from '../../productivityContext';
 */
 const Settings = () => {
   const { defaultUser, changeTimer } = useGlobalProductivityContext();
-  const [timer, setTimer] = useState(defaultUser.timer);
+
   const [darkMode, setDarkMode] = useState(false);
 
   const inputRef = useRef();
 
   const handleSubmit = (e) => {
     let v = inputRef.current.value;
-    setTimer(v);
     changeTimer(v);
     e.preventDefault();
   };

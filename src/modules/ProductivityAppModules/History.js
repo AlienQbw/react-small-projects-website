@@ -17,7 +17,7 @@ const History = () => {
 
   useEffect(() => {
     setHistory(...history, defaultUser.history);
-  }, [defaultUser.History]);
+  }, [defaultUser.history, history]);
 
   return (
     <div className="productivity-container flex history-container">

@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useGlobalProductivityContext } from '../../productivityContext';
 
 const TodoList = (data) => {
   const { toggleSideBar } = useGlobalProductivityContext();
 
-  const [list, setList] = useState(data.list);
+  const list = data.list;
 
-  useEffect(() => {
-    if (data.list.length > 0) {
-      setList([...list, data.list[data.list.length - 1]]);
-    }
-  }, [data.list]);
   if (list.length > 0) {
     return (
       <section className="flex productivity-container">

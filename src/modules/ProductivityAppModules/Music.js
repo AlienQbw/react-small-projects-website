@@ -7,15 +7,31 @@ import pop from './media/music/pop-sample.mp3';
 /* I'm importing in such a very inefficient way because I have only 4 songs */
 
 const useAudio = (url) => {
+  const songs = [lofi, rock, instrumental, pop];
+
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState(false);
   const volume = useRef(1);
+  const [currentVolume, setCurrentVolume] = useState(1);
 
   const toggle = () => {
     setPlaying(!playing);
   };
   const changeVolume = () => {
     audio.volume = volume.current.value;
+    setCurrentVolume(audio.volume);
+  };
+
+  const changeSong = (e) => {
+    setPlaying(true);
+    songs.forEach((song) => {
+      if (song.includes(e)) {
+        audio.src = song;
+      }
+    });
+    audio.pause();
+    audio.load();
+    audio.play();
   };
 
   useEffect(() => {
@@ -29,14 +45,15 @@ const useAudio = (url) => {
     };
   }, []);
 
-  return [playing, toggle, volume, changeVolume];
+  return [playing, toggle, volume, changeVolume, currentVolume, changeSong];
 };
 
 const Music = () => {
   const { musicGenre } = useGlobalProductivityContext();
-  const url = lofi;
+  let url = lofi;
 
-  const [playing, toggle, volume, changeVolume] = useAudio(url);
+  const [playing, toggle, volume, changeVolume, currentVolume, changeSong] =
+    useAudio(url);
   return (
     <div className="productivity-container music-container">
       <p>
@@ -49,7 +66,10 @@ const Music = () => {
             <button
               className="btn-productivity"
               key={el}
-              onClick={() => console.log(`change song!`)}
+              onClick={() => {
+                url = pop;
+                changeSong(el.toLowerCase());
+              }}
             >
               {el}
             </button>
@@ -62,7 +82,7 @@ const Music = () => {
           ></button>
         </div>
         <input
-          onClick={changeVolume}
+          onChange={changeVolume}
           ref={volume}
           type="range"
           id="volume"
@@ -71,7 +91,7 @@ const Music = () => {
           max="1"
           step="0.02"
         />
-        <label>100%</label>
+        <label>{`${Math.round(currentVolume * 100)}%`}</label>
       </div>
     </div>
   );
